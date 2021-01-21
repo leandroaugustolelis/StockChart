@@ -2,10 +2,12 @@ import React from 'react';
 
 import Container from './styles';
 
-type Props = {
+interface TextInfoProps {
   text: string;
-};
+}
 
-const TextInfo = ({ text }: Props) => <Container>{text}</Container>;
+const TextInfo: React.FC<TextInfoProps> = ({ text }) => (
+  <Container>{text}</Container>
+);
 
 export default TextInfo;

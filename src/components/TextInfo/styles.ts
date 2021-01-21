@@ -7,6 +7,7 @@ const Container = styled.span`
   font-size: 36px;
   line-height: 44px;
   color: #fcfbfb;
+  text-transform: capitalize;
 `;
 
 export default Container;

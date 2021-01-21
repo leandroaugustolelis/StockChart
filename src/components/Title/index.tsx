@@ -2,10 +2,10 @@ import React from 'react';
 
 import Container from './styles';
 
-type Props = {
+interface TitleProps {
   text: string;
-};
+}
 
-const Title = ({ text }: Props) => <Container>{text}</Container>;
+const Title: React.FC<TitleProps> = ({ text }) => <Container>{text}</Container>;
 
 export default Title;

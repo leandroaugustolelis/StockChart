@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   Container,
@@ -13,13 +13,18 @@ import {
   CompanySymbol,
   CompanyName,
   CompanyPrice,
+  Form,
+  Test,
 } from './styles';
 import Title from '../../components/Title';
 import TextInfo from '../../components/TextInfo';
+import Input from '../../components/Input';
 
 import { ReactComponent as StockImage } from '../../assets/stock-img.svg';
 
 const Main: React.FC = () => {
+  const [stockSymbol, setStockSymbol] = useState('');
+
   return (
     <Container>
       <Content>
@@ -27,15 +32,25 @@ const Main: React.FC = () => {
           <ImageContent>
             <StockImage />
           </ImageContent>
-          <TitleContent>
-            <Title text="Historical Chart" />
-          </TitleContent>
+          <Test>
+            <TitleContent>
+              <Title text="historical chart" />
+            </TitleContent>
+            <Form>
+              <Input
+                placeholder="type a symbol"
+                onChange={e => setStockSymbol(e.target.value)}
+                isFocus={false}
+                isError={true}
+              />
+            </Form>
+          </Test>
         </ContentTop>
         <BottomContent>
           <BottomLeft>
-            <TextInfo text="Symbol"></TextInfo>
-            <TextInfo text="Company"></TextInfo>
-            <TextInfo text="Price"></TextInfo>
+            <TextInfo text="symbol"></TextInfo>
+            <TextInfo text="company"></TextInfo>
+            <TextInfo text="price"></TextInfo>
           </BottomLeft>
           <BottomRight>
             <CompanySymbol>IBM</CompanySymbol>

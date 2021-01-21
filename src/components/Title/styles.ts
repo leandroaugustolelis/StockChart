@@ -7,6 +7,7 @@ const Container = styled.h1`
   font-weight: bold;
   font-size: 55px;
   color: #fcfbfb;
+  text-transform: capitalize;
 `;
 
 export default Container;

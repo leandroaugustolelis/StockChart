@@ -41,7 +41,7 @@ export const BottomContent = styled.div`
 export const BottomLeft = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around; ;
+  justify-content: space-around;
 `;
 
 export const BottomRight = styled.div`
@@ -69,4 +69,14 @@ export const CompanyPrice = styled.span`
 
 export const Final = styled.div`
   height: 300px;
+`;
+
+export const Form = styled.div`
+  margin-top: 124px;
+`;
+
+export const Test = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 170px;
 `;
