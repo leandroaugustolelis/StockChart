@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useCallback } from 'react';
 
 import { useSelector } from 'react-redux';
 import api from '../../services/api';
@@ -33,33 +33,27 @@ interface StockProps {
   latestPrice: number;
 }
 
-interface ReduxProps {
-  loadedStockInfo: string;
-}
-
 const Main: React.FC = () => {
   const [stockSymbol, setStockSymbol] = useState('');
   const [stockInfo, setStockInfo] = useState<StockProps>();
   const [stockHistory, setStockHistory] = useState();
   const [loading, setLoading] = useState(false);
-  const testRedux = useSelector<ReduxProps>(state => state);
 
-  console.log(testRedux);
+  const handleSubmit = useCallback(
+    async (event: FormEvent<HTMLFormElement>): Promise<void> => {
+      event.preventDefault();
 
-  async function handleSubmit(
-    event: FormEvent<HTMLFormElement>,
-  ): Promise<void> {
-    event.preventDefault();
+      const [dataInfo, dataHistory] = await Promise.all([
+        api.get(`stable/stock/${stockSymbol}/quote`),
+        api.get(`/stable/stock/${stockSymbol}/chart/1y`),
+      ]);
 
-    const [dataInfo, dataHistory] = await Promise.all([
-      api.get(`stable/stock/${stockSymbol}/quote`),
-      api.get(`/stable/stock/${stockSymbol}/chart/1y`),
-    ]);
-
-    setStockInfo(dataInfo.data);
-    setStockHistory(dataHistory.data);
-    setLoading(true);
-  }
+      setStockInfo(dataInfo.data);
+      setStockHistory(dataHistory.data);
+      setLoading(true);
+    },
+    [stockSymbol],
+  );
 
   return (
     <Container>

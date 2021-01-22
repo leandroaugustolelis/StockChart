@@ -5,16 +5,7 @@ import numeral from 'numeral';
 import { AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
 
 import ResponsiveContainer from './styles';
-
-const styles = {
-  tooltipWrapper: {
-    background: '#444444',
-    border: 'none',
-  },
-  tooltip: {
-    color: '#ebebeb',
-  },
-};
+import CustomTooltip from '../CustomTooltip/index';
 
 const StockChart: React.FC<any> = ({ data }) => {
   const currencyFormat = (item: string) => numeral(item).format('$0,0');
@@ -45,19 +36,24 @@ const StockChart: React.FC<any> = ({ data }) => {
           dataKey="close"
           tickFormatter={dateFormat}
         />
-        <YAxis tick={false} axisLine={false} tickFormatter={currencyFormat} />
-        <Tooltip
-          itemStyle={{ fontSize: 20 }}
-          contentStyle={styles.tooltipWrapper}
-          labelStyle={styles.tooltip}
-        />
+        <YAxis tick={false} axisLine={false} />
+
         <Area
           type="linear"
           dataKey="close"
-          name="price"
           stroke="none"
           fill="url(#colorValue)"
           fillOpacity={1}
+        />
+        <Tooltip
+          isAnimationActive={false}
+          content={
+            <CustomTooltip
+              customProps="Price"
+              customProps1="Date"
+              customProps2="Price"
+            />
+          }
         />
       </AreaChart>
     </ResponsiveContainer>
