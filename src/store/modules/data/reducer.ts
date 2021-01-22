@@ -2,7 +2,6 @@ import { DataState, DataAction } from './types';
 
 const INITIAL_STATE: DataState = {
   loadedStockInfo: false,
-  macaco: [{ name: '05-01', value: 12, unit: 'kg' }],
 };
 
 export default function data(

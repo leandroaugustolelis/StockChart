@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   height: 50px;
-  width: 150px;
+  width: 200px;
 
   opacity: 0.8;
   font-size: 12px;

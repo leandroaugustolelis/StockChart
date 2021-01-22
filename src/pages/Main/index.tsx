@@ -1,6 +1,5 @@
 import React, { useState, FormEvent, useCallback } from 'react';
 
-import { useSelector } from 'react-redux';
 import api from '../../services/api';
 
 import {
@@ -70,8 +69,6 @@ const Main: React.FC = () => {
               <Input
                 placeholder="type a symbol"
                 onChange={e => setStockSymbol(e.target.value)}
-                isFocus={false}
-                isError={true}
                 value={stockSymbol}
               />
             </Form>

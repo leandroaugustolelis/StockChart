@@ -1,6 +1,4 @@
 import React from 'react';
-import moment from 'moment';
-import numeral from 'numeral';
 
 import { AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
 
@@ -8,9 +6,6 @@ import ResponsiveContainer from './styles';
 import CustomTooltip from '../CustomTooltip/index';
 
 const StockChart: React.FC<any> = ({ data }) => {
-  const currencyFormat = (item: string) => numeral(item).format('$0,0');
-  const dateFormat = (item: Date) => moment(item).format('MMM YY');
-
   return (
     <ResponsiveContainer>
       <AreaChart
@@ -30,12 +25,7 @@ const StockChart: React.FC<any> = ({ data }) => {
             <stop offset="100%" stopColor="#f7931a" stopOpacity={0.0} />
           </linearGradient>
         </defs>
-        <XAxis
-          tick={false}
-          axisLine={false}
-          dataKey="close"
-          tickFormatter={dateFormat}
-        />
+        <XAxis tick={false} axisLine={false} />
         <YAxis tick={false} axisLine={false} />
 
         <Area
@@ -51,7 +41,7 @@ const StockChart: React.FC<any> = ({ data }) => {
             <CustomTooltip
               customProps="Price"
               customProps1="Date"
-              customProps2="Price"
+              customProps2="Volume"
             />
           }
         />
