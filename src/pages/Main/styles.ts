@@ -34,8 +34,7 @@ export const TitleContent = styled.div`
 
 export const BottomContent = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-left: 370px;
 `;
 
 export const BottomLeft = styled.div`
@@ -68,10 +67,13 @@ export const CompanyPrice = styled.span`
 `;
 
 export const Final = styled.div`
-  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 70px;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
   margin-top: 124px;
 `;
 

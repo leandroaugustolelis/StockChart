@@ -33,7 +33,7 @@ export const InputBlank = styled.div`
   }
 `;
 
-export const InputButton = styled.div`
+export const InputButton = styled.button`
   height: 54px;
   width: 49px;
   background: #c4c4c4;
@@ -41,7 +41,9 @@ export const InputButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 0;
   cursor: pointer;
+
   &:hover {
     background: #f7931a;
   }

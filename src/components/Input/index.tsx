@@ -16,7 +16,7 @@ const Input: React.FC<InputProps> = ({ ...rest }) => (
       <Activity />
       <input {...rest} />
     </InputBlank>
-    <InputButton>
+    <InputButton type="submit">
       <ChevronRight />
     </InputButton>
   </Container>
