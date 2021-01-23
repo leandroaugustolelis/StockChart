@@ -10,7 +10,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <BrowserRouter>
         <Switch>
-          <Route to="/" exact component={Main} />
+          <Route to="/" exact component={() => <Main />} />
         </Switch>
       </BrowserRouter>
     </>

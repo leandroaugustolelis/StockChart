@@ -1,6 +1,12 @@
-import createStore from './createStore';
-import rootReducer from './modules/rootReducer';
+import { createStore, Store } from 'redux';
+import { StockDataState } from './ducks/stockdata/types';
 
-const store = createStore(rootReducer, []);
+import rootReducer from './ducks/rootReducer';
+
+export interface ApplicationState {
+  stockdata: StockDataState;
+}
+
+const store: Store<ApplicationState> = createStore(rootReducer);
 
 export default store;
