@@ -7,7 +7,7 @@ import CustomTooltip from '../CustomTooltip/index';
 const StockChart: React.FC<any> = ({ data }) => {
   return (
     <AreaChart
-      width={620}
+      width={600}
       height={250}
       data={data}
       margin={{
