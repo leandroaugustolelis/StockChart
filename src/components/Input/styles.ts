@@ -25,6 +25,7 @@ export const InputBlank = styled.div`
     border: 0 none;
     font-size: 12px;
     font-weight: bold;
+    text-transform: uppercase;
 
     &::placeholder {
       color: #ecf2f8;

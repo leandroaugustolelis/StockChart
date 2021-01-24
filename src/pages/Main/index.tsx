@@ -81,6 +81,7 @@ const Main: React.FC = () => {
             />
           </Form>
         </MainContent>
+
         <BottomContent>
           <BottomLeft>
             {loading && <TextInfo text="symbol"></TextInfo>}

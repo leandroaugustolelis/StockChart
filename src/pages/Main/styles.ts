@@ -4,7 +4,6 @@ export const Container = styled.div`
   margin-top: 20px;
   padding-left: 220px;
   padding-right: 220px;
-  max-height: 600px;
 `;
 
 export const Content = styled.div`
@@ -12,7 +11,6 @@ export const Content = styled.div`
   box-sizing: border-box;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  max-height: 630px;
   display: flex;
   flex-direction: column;
 `;
@@ -27,7 +25,7 @@ export const TitleContent = styled.div`
 
 export const ImageContent = styled.div`
   display: flex;
-  max-width: 110px;
+  width: 100px;
 `;
 
 export const MainContent = styled.div`
@@ -47,6 +45,7 @@ export const BottomContent = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 70px;
+  height: 20px;
 `;
 
 export const BottomLeft = styled.div`
@@ -83,6 +82,7 @@ export const Final = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 160px;
   margin-right: 110px;
+  margin-top: 40px;
+  height: 150px;
 `;

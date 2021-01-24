@@ -8,7 +8,7 @@ const StockChart: React.FC<any> = ({ data }) => {
   return (
     <AreaChart
       width={500}
-      height={200}
+      height={150}
       data={data}
       margin={{
         top: 30,
