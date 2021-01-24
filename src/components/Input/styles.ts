@@ -12,6 +12,7 @@ export const InputBlank = styled.div`
   border-radius: 5px 0 0 5px;
   border: 2px solid #fff;
   border-right: 0;
+  height: 30px;
 
   color: black;
 
@@ -22,9 +23,8 @@ export const InputBlank = styled.div`
 
   input {
     border: 0 none;
-    font-size: 20px;
+    font-size: 12px;
     font-weight: bold;
-    width: 200px;
 
     &::placeholder {
       color: #ecf2f8;
@@ -32,14 +32,14 @@ export const InputBlank = styled.div`
   }
 
   svg {
-    margin-right: 16px;
-    margin-left: 4px;
+    margin-left: 1px;
+    margin-right: 10px;
   }
 `;
 
 export const InputButton = styled.button`
-  height: 54px;
-  width: 49px;
+  height: 30px;
+  width: 40px;
   background: #c4c4c4;
   border-radius: 0px 10px 10px 0px;
   display: flex;

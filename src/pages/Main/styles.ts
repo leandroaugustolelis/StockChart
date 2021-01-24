@@ -24,7 +24,7 @@ export const TitleContent = styled.div`
 
 export const ImageContent = styled.div`
   display: flex;
-  max-width: 172px;
+  max-width: 130px;
 `;
 
 export const MainContent = styled.div`
@@ -43,6 +43,7 @@ export const BottomContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 70px;
 `;
 
 export const BottomLeft = styled.div`
@@ -61,18 +62,18 @@ export const BottomRight = styled.div`
 `;
 
 export const CompanySymbol = styled.span`
-  margin-top: -10px;
-  font-size: 36px;
+  margin-top: 5px;
+  font-size: 26px;
   margin-bottom: 15px;
 `;
 
 export const CompanyName = styled.span`
-  font-size: 20px;
+  font-size: 14px;
   margin-bottom: 20px;
 `;
 
 export const CompanyPrice = styled.span`
-  font-size: 30px;
+  font-size: 24px;
 `;
 
 export const Final = styled.div`

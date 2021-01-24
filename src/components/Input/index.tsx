@@ -17,7 +17,7 @@ const Input: React.FC<InputProps> = ({ ...rest }) => {
   return (
     <Container>
       <InputBlank>
-        <AiOutlineStock size={40} />
+        <AiOutlineStock size={20} />
         <input {...rest} />
       </InputBlank>
       <InputButton type="submit">
