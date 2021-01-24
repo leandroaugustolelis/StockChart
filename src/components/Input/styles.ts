@@ -18,9 +18,9 @@ export const InputBlank = styled.div`
 
   input {
     border: 0 none;
-    flex: 1;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
+    width: 200px;
 
     &::placeholder {
       color: #ecf2f8;

@@ -4,7 +4,6 @@ export const Container = styled.div`
   margin-top: 59px;
   padding-left: 220px;
   padding-right: 220px;
-  font-family: 'Montserrat', sans-serif;
 `;
 
 export const Content = styled.div`
@@ -12,29 +11,39 @@ export const Content = styled.div`
   box-sizing: border-box;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-`;
-
-export const ImageContent = styled.div`
-  margin-top: 116px;
-  height: 262px;
-  display: flex;
-  flex: 1;
-  padding-left: 170px;
-`;
-
-export const ContentTop = styled.div`
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: column; */
 `;
 
 export const TitleContent = styled.div`
+  display: flex;
   margin-top: 64px;
-  margin-right: 315px;
+  justify-content: center;
+  align-items: center;
 `;
+
+export const ImageContent = styled.div`
+  display: flex;
+  max-width: 172px;
+  margin-right: 39px;
+`;
+
+export const MainContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 250px;
+`;
+
+export const Form = styled.form``;
 
 export const BottomContent = styled.div`
   display: flex;
-  margin-left: 540px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: 500px;
 `;
 
 export const BottomLeft = styled.div`
@@ -48,13 +57,11 @@ export const BottomRight = styled.div`
   color: #f7931a;
   font-weight: bold;
   margin-left: 45px;
-  width: 567px;
-  height: 176px;
 `;
 
 export const CompanySymbol = styled.span`
   margin-top: -10px;
-  font-size: 50px;
+  font-size: 36px;
   margin-bottom: 18px;
 `;
 
@@ -64,7 +71,7 @@ export const CompanyName = styled.span`
 `;
 
 export const CompanyPrice = styled.span`
-  font-size: 40px;
+  font-size: 30px;
 `;
 
 export const Final = styled.div`
@@ -72,14 +79,5 @@ export const Final = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: 100px;
-`;
-
-export const Form = styled.form`
-  margin-top: 124px;
-`;
-
-export const Test = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-right: 170px;
+  height: 450px;
 `;

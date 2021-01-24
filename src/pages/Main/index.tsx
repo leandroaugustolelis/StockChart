@@ -6,17 +6,16 @@ import {
   Container,
   Content,
   ImageContent,
-  ContentTop,
   TitleContent,
   BottomContent,
   BottomLeft,
   BottomRight,
-  Final,
   CompanySymbol,
   CompanyName,
   CompanyPrice,
+  MainContent,
   Form,
-  Test,
+  Final,
 } from './styles';
 import Title from '../../components/Title';
 import TextInfo from '../../components/TextInfo';
@@ -59,23 +58,21 @@ const Main: React.FC = () => {
     <Container>
       <Content>
         <Ticker />
-        <ContentTop>
+        <TitleContent>
+          <Title text="historical chart" />
+        </TitleContent>
+        <MainContent>
           <ImageContent>
             <StockImage />
           </ImageContent>
-          <Test>
-            <TitleContent>
-              <Title text="historical chart" />
-            </TitleContent>
-            <Form onSubmit={handleSubmit}>
-              <Input
-                placeholder="type a symbol"
-                onChange={e => setStockSymbol(e.target.value)}
-                value={stockSymbol}
-              />
-            </Form>
-          </Test>
-        </ContentTop>
+          <Form onSubmit={handleSubmit}>
+            <Input
+              placeholder="type a symbol"
+              onChange={e => setStockSymbol(e.target.value)}
+              value={stockSymbol}
+            />
+          </Form>
+        </MainContent>
         <BottomContent>
           <BottomLeft>
             {loading && <TextInfo text="symbol"></TextInfo>}
