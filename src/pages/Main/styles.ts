@@ -15,7 +15,7 @@ export const Content = styled.div`
 
 export const TitleContent = styled.div`
   display: flex;
-  margin-top: 64px;
+  margin-top: 10px;
   margin-left: 10px;
   justify-content: center;
   align-items: center;
