@@ -8,10 +8,10 @@ import { Container, CompanyName, Variation, StockPrice } from './styles';
 
 import { ApplicationState } from '../../store';
 
-const TickerTest = ({ stockdata, stockdatac2, stockdatac3 }: any) => {
-  const loadData = useDispatch();
-  const loadData2 = useDispatch();
-  const loadData3 = useDispatch();
+const TickerTest = ({ stockdatac1, stockdatac2, stockdatac3 }: any) => {
+  const loadDataC1 = useDispatch();
+  const loadDataC2 = useDispatch();
+  const loadDataC3 = useDispatch();
 
   useEffect(() => {
     async function initialLoad() {
@@ -21,16 +21,16 @@ const TickerTest = ({ stockdata, stockdatac2, stockdatac3 }: any) => {
         api.get(`/stable/stock/NKE/quote`),
       ]);
 
-      loadData({
-        type: '@data/LOAD_DATA',
+      loadDataC1({
+        type: '@data/LOAD_DATAC1',
         payload: dataC1,
       });
-      loadData2({
-        type: '@data/LOAD_DATA2',
+      loadDataC2({
+        type: '@data/LOAD_DATAC2',
         payload: dataC2,
       });
-      loadData3({
-        type: '@data/LOAD_DATA3',
+      loadDataC3({
+        type: '@data/LOAD_DATAC3',
         payload: dataC3,
       });
     }
@@ -42,9 +42,9 @@ const TickerTest = ({ stockdata, stockdatac2, stockdatac3 }: any) => {
     <Ticker>
       {() => (
         <Container>
-          <CompanyName>{stockdata.symbol}</CompanyName>
-          <StockPrice>{stockdata.latestPrice}</StockPrice>
-          <Variation>{stockdata.change}</Variation>
+          <CompanyName>{stockdatac1.symbol}</CompanyName>
+          <StockPrice>{stockdatac1.latestPrice}</StockPrice>
+          <Variation>{stockdatac1.change}</Variation>
           <CompanyName>{stockdatac2.symbol}</CompanyName>
           <StockPrice>{stockdatac2.latestPrice}</StockPrice>
           <Variation>{stockdatac2.change}</Variation>
@@ -58,7 +58,7 @@ const TickerTest = ({ stockdata, stockdatac2, stockdatac3 }: any) => {
 };
 
 const mapStateToProps = (state: ApplicationState) => ({
-  stockdata: state.stockdata.data,
+  stockdatac1: state.stockdata.datac1,
   stockdatac2: state.stockdata.datac2,
   stockdatac3: state.stockdata.datac3,
 });

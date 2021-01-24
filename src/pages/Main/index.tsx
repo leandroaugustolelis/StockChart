@@ -1,4 +1,5 @@
 import React, { useState, FormEvent, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 
 import api from '../../services/api';
 
@@ -37,10 +38,16 @@ const Main: React.FC = () => {
   const [stockInfo, setStockInfo] = useState<StockProps>();
   const [stockHistory, setStockHistory] = useState<any>();
   const [loading, setLoading] = useState(false);
+  const setFilled = useDispatch();
 
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>): Promise<void> => {
       event.preventDefault();
+
+      if (!stockSymbol) {
+        setFilled({ type: '@general/UI_VALIDATE', payload: true });
+        return;
+      }
 
       const [dataInfo, dataHistory] = await Promise.all([
         api.get(`/stable/stock/${stockSymbol}/quote`),
@@ -50,6 +57,7 @@ const Main: React.FC = () => {
       setStockInfo(dataInfo.data);
       setStockHistory(dataHistory.data);
       setLoading(true);
+      setFilled({ type: '@general/UI_VALIDATE', payload: false });
     },
     [stockSymbol],
   );
@@ -57,7 +65,6 @@ const Main: React.FC = () => {
   return (
     <Container>
       <Content>
-        <Ticker />
         <TitleContent>
           <Title text="historical chart" />
         </TitleContent>

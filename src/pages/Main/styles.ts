@@ -11,13 +11,12 @@ export const Content = styled.div`
   box-sizing: border-box;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  /* display: flex;
-  flex-direction: column; */
 `;
 
 export const TitleContent = styled.div`
   display: flex;
   margin-top: 64px;
+  margin-left: 10px;
   justify-content: center;
   align-items: center;
 `;
@@ -25,7 +24,6 @@ export const TitleContent = styled.div`
 export const ImageContent = styled.div`
   display: flex;
   max-width: 172px;
-  margin-right: 39px;
 `;
 
 export const MainContent = styled.div`
@@ -33,17 +31,17 @@ export const MainContent = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-right: 250px;
+  margin-right: 70px;
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  margin-left: 70px;
+`;
 
 export const BottomContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  margin-left: 500px;
 `;
 
 export const BottomLeft = styled.div`
@@ -57,12 +55,14 @@ export const BottomRight = styled.div`
   color: #f7931a;
   font-weight: bold;
   margin-left: 45px;
+  width: 420px;
+  height: 140px;
 `;
 
 export const CompanySymbol = styled.span`
   margin-top: -10px;
   font-size: 36px;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
 `;
 
 export const CompanyName = styled.span`
@@ -78,6 +78,6 @@ export const Final = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 130px;
-  height: 450px;
+  height: 300px;
+  margin-right: 110px;
 `;

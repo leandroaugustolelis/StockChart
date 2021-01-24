@@ -5,7 +5,6 @@ export const Container = styled.div`
   align-items: center;
   background-color: #232323;
   justify-content: space-around;
-  height: 15px;
 `;
 
 export const CompanyName = styled.h1`

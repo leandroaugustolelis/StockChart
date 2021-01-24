@@ -2,31 +2,33 @@ import { Reducer } from 'redux';
 import { StockDataState, StockDataTypes } from './types';
 
 const INITIAL_STATE: StockDataState = {
-  data: [],
+  datac1: [],
   datac2: [],
   datac3: [],
-  loading: false,
+  isFilled: false,
 };
 
 const reducer: Reducer<StockDataState> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case StockDataTypes.LOAD_DATA:
+    case StockDataTypes.LOAD_DATAC1:
       return {
         ...state,
-        loading: true,
-        data: action.payload.data,
+        datac1: action.payload.data,
       };
-    case StockDataTypes.LOAD_DATA2:
+    case StockDataTypes.LOAD_DATAC2:
       return {
         ...state,
-        loading: true,
         datac2: action.payload.data,
       };
-    case StockDataTypes.LOAD_DATA3:
+    case StockDataTypes.LOAD_DATAC3:
       return {
         ...state,
-        loading: true,
         datac3: action.payload.data,
+      };
+    case StockDataTypes.UX_VALIDATION:
+      return {
+        ...state,
+        isFilled: action.payload,
       };
     default:
       return state;
