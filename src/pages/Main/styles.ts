@@ -78,6 +78,6 @@ export const Final = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px;
+  height: 220px;
   margin-right: 110px;
 `;
