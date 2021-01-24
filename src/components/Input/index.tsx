@@ -1,20 +1,19 @@
 import React, { InputHTMLAttributes } from 'react';
 
+import { AiOutlineStock } from 'react-icons/ai';
+import { IoIosArrowForward } from 'react-icons/io';
 import { Container, InputBlank, InputButton } from './styles';
-
-import { ReactComponent as ChevronRight } from '../../assets/chevron-right.svg';
-import { ReactComponent as Activity } from '../../assets/activity.svg';
 
 type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
 const Input: React.FC<InputProps> = ({ ...rest }) => (
   <Container>
     <InputBlank>
-      <Activity />
+      <AiOutlineStock size={40} />
       <input {...rest} />
     </InputBlank>
     <InputButton type="submit">
-      <ChevronRight />
+      <IoIosArrowForward size={20} />
     </InputButton>
   </Container>
 );

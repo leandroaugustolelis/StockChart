@@ -65,6 +65,7 @@ const Main: React.FC = () => {
   return (
     <Container>
       <Content>
+        <Ticker />
         <TitleContent>
           <Title text="historical chart" />
         </TitleContent>

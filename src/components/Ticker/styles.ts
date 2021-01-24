@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  background-color: #232323;
+  background-color: transparent;
   justify-content: space-around;
+  height: 15px;
 `;
 
 export const CompanyName = styled.h1`

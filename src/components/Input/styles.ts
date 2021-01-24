@@ -10,10 +10,14 @@ export const InputBlank = styled.div`
   display: flex;
   align-items: center;
   border-radius: 5px 0 0 5px;
-  border: 2px solid;
+  border: 2px solid #fff;
+  border-right: 0;
+
+  color: black;
 
   &:hover {
     color: #f7931a;
+    border-color: #f7931a;
   }
 
   input {
