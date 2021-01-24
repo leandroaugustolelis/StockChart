@@ -1,5 +1,4 @@
-import React, { useState, FormEvent, useCallback, useEffect } from 'react';
-import { useDispatch, useSelector, connect } from 'react-redux';
+import React, { useState, FormEvent, useCallback } from 'react';
 
 import api from '../../services/api';
 
@@ -27,8 +26,6 @@ import { ReactComponent as StockImage } from '../../assets/stock-img.svg';
 
 import StockChart from '../../components/StockChart';
 import Ticker from '../../components/Ticker';
-import { ApplicationState } from '../../store';
-import { StockData } from '../../store/ducks/stockdata/types';
 
 interface StockProps {
   symbol: string;
@@ -36,36 +33,11 @@ interface StockProps {
   latestPrice: number;
 }
 
-interface StateProps {
-  stockdata: StockData[];
-}
-
-type Props = StateProps;
-
-const Main = (props: Props) => {
+const Main: React.FC = () => {
   const [stockSymbol, setStockSymbol] = useState('');
   const [stockInfo, setStockInfo] = useState<StockProps>();
-  const [stockHistory, setStockHistory] = useState();
+  const [stockHistory, setStockHistory] = useState<any>();
   const [loading, setLoading] = useState(false);
-  const loadData = useDispatch();
-  const storedData = useSelector((state: ApplicationState) => state.stockdata);
-
-  useEffect(() => {
-    async function initialLoad() {
-      const [dataC1, dataC2, dataC3] = await Promise.all([
-        api.get(`/stable/stock/IBM/quote`),
-        api.get(`/stable/stock/TSLA/quote`),
-        api.get(`/stable/stock/NKE/quote`),
-      ]);
-
-      loadData({
-        type: '@data/LOAD_DATA',
-        payload: dataC1,
-      });
-    }
-
-    initialLoad();
-  }, []);
 
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>): Promise<void> => {
@@ -77,7 +49,7 @@ const Main = (props: Props) => {
       ]);
 
       setStockInfo(dataInfo.data);
-      setStockHistory(dataHistory.data.symbol);
+      setStockHistory(dataHistory.data);
       setLoading(true);
     },
     [stockSymbol],
@@ -86,12 +58,12 @@ const Main = (props: Props) => {
   return (
     <Container>
       <Content>
+        <Ticker />
         <ContentTop>
           <ImageContent>
             <StockImage />
           </ImageContent>
           <Test>
-            <Ticker />
             <TitleContent>
               <Title text="historical chart" />
             </TitleContent>
@@ -124,8 +96,4 @@ const Main = (props: Props) => {
   );
 };
 
-const mapStateToProps = (state: ApplicationState) => ({
-  stockdata: state.stockdata.data,
-});
-
-export default connect(mapStateToProps)(Main);
+export default Main;

@@ -12,7 +12,6 @@ export const Content = styled.div`
   box-sizing: border-box;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  padding-left: 170px;
 `;
 
 export const ImageContent = styled.div`
@@ -20,6 +19,7 @@ export const ImageContent = styled.div`
   height: 262px;
   display: flex;
   flex: 1;
+  padding-left: 170px;
 `;
 
 export const ContentTop = styled.div`
@@ -34,43 +34,44 @@ export const TitleContent = styled.div`
 
 export const BottomContent = styled.div`
   display: flex;
-  margin-left: 370px;
+  margin-left: 540px;
 `;
 
 export const BottomLeft = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 `;
 
 export const BottomRight = styled.div`
   display: flex;
   flex-direction: column;
   color: #f7931a;
-  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   margin-left: 45px;
+  width: 567px;
+  height: 176px;
 `;
 
 export const CompanySymbol = styled.span`
+  margin-top: -10px;
   font-size: 50px;
+  margin-bottom: 18px;
 `;
 
 export const CompanyName = styled.span`
   font-size: 20px;
-  margin-top: 5px;
+  margin-bottom: 20px;
 `;
 
 export const CompanyPrice = styled.span`
   font-size: 40px;
-  margin-bottom: 10px;
 `;
 
 export const Final = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 70px;
+  margin-left: 100px;
 `;
 
 export const Form = styled.form`

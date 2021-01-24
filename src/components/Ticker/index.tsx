@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch, connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, connect } from 'react-redux';
 
 import Ticker from 'react-ticker';
 import api from '../../services/api';
@@ -7,60 +7,60 @@ import api from '../../services/api';
 import { Container, CompanyName, Variation, StockPrice } from './styles';
 
 import { ApplicationState } from '../../store';
-import { StockData } from '../../store/ducks/stockdata/types';
 
-interface StateProps {
-  stockdata: StockData[];
-  stockdatac2: StockData[];
-}
+const TickerTest = ({ stockdata, stockdatac2, stockdatac3 }: any) => {
+  const loadData = useDispatch();
+  const loadData2 = useDispatch();
+  const loadData3 = useDispatch();
 
-// interface DispatchProps {
+  useEffect(() => {
+    async function initialLoad() {
+      const [dataC1, dataC2, dataC3] = await Promise.all([
+        api.get(`/stable/stock/IBM/quote`),
+        api.get(`/stable/stock/TSLA/quote`),
+        api.get(`/stable/stock/NKE/quote`),
+      ]);
 
-// }
+      loadData({
+        type: '@data/LOAD_DATA',
+        payload: dataC1,
+      });
+      loadData2({
+        type: '@data/LOAD_DATA2',
+        payload: dataC2,
+      });
+      loadData3({
+        type: '@data/LOAD_DATA3',
+        payload: dataC3,
+      });
+    }
 
-// interface OwnProps {
-
-// }
-
-type Props = StateProps;
-
-const TickerTest = (props: Props) => {
-  // const storedData = useSelector(
-  //   (state: ApplicationState) => state.stockdata.data,
-  // );
-
-  const [company1, setCompany1] = useState('');
-  const { stockdata } = props;
-  const { stockdatac2 } = props;
-
-  console.log(stockdata);
+    initialLoad();
+  }, []);
 
   return (
     <Ticker>
       {() => (
-        <>
-          <Container>
-            {/* <CompanyName>{stockdata[0]?.symbol}</CompanyName>
-            <StockPrice>{stockdata[0]?.latestPrice}</StockPrice>
-            <Variation>{stockdata[0]?.change}</Variation> */}
-            <CompanyName>Apple</CompanyName>
-            <StockPrice>120.5</StockPrice>
-            <Variation>+0.89%</Variation>
-            <CompanyName>Tesla</CompanyName>
-            <StockPrice>135.6</StockPrice>
-            <Variation>+2.54%</Variation>
-          </Container>
-        </>
+        <Container>
+          <CompanyName>{stockdata.symbol}</CompanyName>
+          <StockPrice>{stockdata.latestPrice}</StockPrice>
+          <Variation>{stockdata.change}</Variation>
+          <CompanyName>{stockdatac2.symbol}</CompanyName>
+          <StockPrice>{stockdatac2.latestPrice}</StockPrice>
+          <Variation>{stockdatac2.change}</Variation>
+          <CompanyName>{stockdatac3.symbol}</CompanyName>
+          <StockPrice>{stockdatac3.latestPrice}</StockPrice>
+          <Variation>{stockdatac3.change}</Variation>
+        </Container>
       )}
     </Ticker>
   );
 };
 
-// export default TickerTest;
-
 const mapStateToProps = (state: ApplicationState) => ({
   stockdata: state.stockdata.data,
-  stockdatac2: state.stockdata.data,
+  stockdatac2: state.stockdata.datac2,
+  stockdatac3: state.stockdata.datac3,
 });
 
 export default connect(mapStateToProps)(TickerTest);
