@@ -11,6 +11,7 @@ export const Content = styled.div`
   box-sizing: border-box;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+  max-height: 700px;
 `;
 
 export const TitleContent = styled.div`
