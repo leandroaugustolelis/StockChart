@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 59px;
+  margin-top: 20px;
   padding-left: 220px;
   padding-right: 220px;
+  max-height: 600px;
 `;
 
 export const Content = styled.div`
@@ -11,7 +12,9 @@ export const Content = styled.div`
   box-sizing: border-box;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  max-height: 700px;
+  max-height: 630px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const TitleContent = styled.div`
@@ -24,7 +27,7 @@ export const TitleContent = styled.div`
 
 export const ImageContent = styled.div`
   display: flex;
-  max-width: 130px;
+  max-width: 110px;
 `;
 
 export const MainContent = styled.div`
@@ -80,6 +83,6 @@ export const Final = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 220px;
+  height: 160px;
   margin-right: 110px;
 `;
