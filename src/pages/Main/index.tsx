@@ -31,7 +31,7 @@ import Input from '../../components/Input';
 import { ReactComponent as StockImage } from '../../assets/stock-img.svg';
 
 import StockChart from '../../components/StockChart';
-import Ticker from '../../components/Ticker';
+import TickerPanel from '../../components/TickerPanel';
 import LiveStockPanel from '../../components/LiveStockPanel';
 
 import { StockData } from '../../store/ducks/stockdata/types';
@@ -77,14 +77,10 @@ const Main: React.FC = () => {
     [stockSymbol],
   );
 
-  const addToPanel = () => {
-    console.log('lalala');
-  };
-
   return (
     <Container>
       <Content>
-        <Ticker />
+        <TickerPanel />
         <TitleContent>
           <Title text="historical chart" />
         </TitleContent>
@@ -100,12 +96,10 @@ const Main: React.FC = () => {
             />
             {inputError && <Error>{inputError}</Error>}
           </Form>
-
           <PanelContent>
             <LiveStockPanel />
           </PanelContent>
         </MainContent>
-
         <BottomContent>
           <BottomLeft>
             {loading && <TextInfo text="symbol"></TextInfo>}
@@ -120,7 +114,7 @@ const Main: React.FC = () => {
             </CompanyPrice>
             <LiveButton>
               {loading && (
-                <button onClick={addToPanel}>
+                <button>
                   <AiOutlinePlusSquare />
                 </button>
               )}

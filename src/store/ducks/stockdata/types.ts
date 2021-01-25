@@ -13,8 +13,8 @@ export interface StockData {
 }
 
 export interface StockDataState {
-  readonly dataTickerC1: StockData[];
-  readonly dataTickerC2: StockData[];
-  readonly dataTickerC3: StockData[];
+  readonly dataTicker1: StockData[];
+  readonly dataTicker2: StockData[];
+  readonly dataTicker3: StockData[];
   readonly inputError: string;
 }
