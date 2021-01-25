@@ -5,7 +5,6 @@ const INITIAL_STATE: StockDataState = {
   dataTicker1: [],
   dataTicker2: [],
   dataTicker3: [],
-  dataTicker: [],
   inputError: '',
 };
 
@@ -14,7 +13,9 @@ const reducer: Reducer<StockDataState> = (state = INITIAL_STATE, action) => {
     case StockDataTypes.LOAD_TICKER:
       return {
         ...state,
-        dataTicker: action.payload,
+        dataTicker1: action.payload[0].data,
+        dataTicker2: action.payload[1].data,
+        dataTicker3: action.payload[2].data,
       };
     case StockDataTypes.SET_ERROR:
       return {

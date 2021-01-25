@@ -16,6 +16,5 @@ export interface StockDataState {
   readonly dataTicker1: StockData[];
   readonly dataTicker2: StockData[];
   readonly dataTicker3: StockData[];
-  readonly dataTicker: [];
   readonly inputError: string;
 }
