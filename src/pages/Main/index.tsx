@@ -1,6 +1,8 @@
 import React, { useState, FormEvent, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import numeral from 'numeral';
+
 import { AiOutlinePlusSquare } from 'react-icons/ai';
 import api from '../../services/api';
 
@@ -45,6 +47,8 @@ const Main: React.FC = () => {
   const inputError = useSelector(
     (state: ApplicationState) => state.stockdata.inputError,
   );
+
+  const priceFormat = (item: number) => numeral(item).format('$ 0,0.00');
 
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>): Promise<void> => {
@@ -110,7 +114,7 @@ const Main: React.FC = () => {
             <CompanySymbol>{loading && stockInfo?.symbol}</CompanySymbol>
             <CompanyName>{loading && stockInfo?.companyName}</CompanyName>
             <CompanyPrice>
-              {loading && `$ ${stockInfo?.latestPrice}`}
+              {loading && stockInfo && `${priceFormat(stockInfo.latestPrice)}`}
             </CompanyPrice>
             <LiveButton>
               {loading && (

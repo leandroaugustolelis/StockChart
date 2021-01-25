@@ -87,7 +87,7 @@ export const Final = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 110px;
-  margin-top: 40px;
+  margin-top: 60px;
   height: 150px;
 `;
 

@@ -14,6 +14,15 @@ export const Container = styled.div`
     font-size: 12px;
     font-weight: bold;
   }
+
+  li {
+    list-style: none;
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 `;
 
 export default Container;

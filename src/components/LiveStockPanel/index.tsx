@@ -14,8 +14,7 @@ const LiveStockPanel: React.FC = () => {
     }
 
     loadData();
-  }, []);
-
+  }, [company1]);
   return (
     <Container>
       <div>
@@ -23,18 +22,6 @@ const LiveStockPanel: React.FC = () => {
       </div>
       <li>
         <ul>
-          <li>
-            <div>
-              <span>{company1?.symbol}</span>
-              <strong>{company1?.latestPrice}</strong>
-            </div>
-          </li>
-          <li>
-            <div>
-              <span>{company1?.symbol}</span>
-              <strong>{company1?.latestPrice}</strong>
-            </div>
-          </li>
           <li>
             <div>
               <span>{company1?.symbol}</span>
