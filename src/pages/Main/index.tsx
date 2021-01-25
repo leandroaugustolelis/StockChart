@@ -71,6 +71,10 @@ const Main: React.FC = () => {
         setStockInfo(dataInfo.data);
         setStockHistory(dataHistory.data);
         setLoading(true);
+        setInputError({
+          type: '@error/SET_ERROR',
+          payload: null,
+        });
       } catch (err) {
         setInputError({
           type: '@error/SET_ERROR',
