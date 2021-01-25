@@ -1,6 +1,7 @@
 import React, { useState, FormEvent, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { AiOutlinePlusSquare } from 'react-icons/ai';
 import api from '../../services/api';
 
 import { ApplicationState } from '../../store';
@@ -20,6 +21,8 @@ import {
   Form,
   Error,
   Final,
+  PanelContent,
+  LiveButton,
 } from './styles';
 import Title from '../../components/Title';
 import TextInfo from '../../components/TextInfo';
@@ -29,16 +32,13 @@ import { ReactComponent as StockImage } from '../../assets/stock-img.svg';
 
 import StockChart from '../../components/StockChart';
 import Ticker from '../../components/Ticker';
+import LiveStockPanel from '../../components/LiveStockPanel';
 
-interface StockProps {
-  symbol: string;
-  companyName: string;
-  latestPrice: number;
-}
+import { StockData } from '../../store/ducks/stockdata/types';
 
 const Main: React.FC = () => {
   const [stockSymbol, setStockSymbol] = useState('');
-  const [stockInfo, setStockInfo] = useState<StockProps>();
+  const [stockInfo, setStockInfo] = useState<StockData>();
   const [stockHistory, setStockHistory] = useState<any>();
   const [loading, setLoading] = useState(false);
   const setInputError = useDispatch();
@@ -77,6 +77,10 @@ const Main: React.FC = () => {
     [stockSymbol],
   );
 
+  const addToPanel = () => {
+    console.log('lalala');
+  };
+
   return (
     <Container>
       <Content>
@@ -96,6 +100,10 @@ const Main: React.FC = () => {
             />
             {inputError && <Error>{inputError}</Error>}
           </Form>
+
+          <PanelContent>
+            <LiveStockPanel />
+          </PanelContent>
         </MainContent>
 
         <BottomContent>
@@ -110,6 +118,14 @@ const Main: React.FC = () => {
             <CompanyPrice>
               {loading && `$ ${stockInfo?.latestPrice}`}
             </CompanyPrice>
+            <LiveButton>
+              {loading && (
+                <button onClick={addToPanel}>
+                  <AiOutlinePlusSquare />
+                </button>
+              )}
+              {loading && <span>Real Time Panel</span>}
+            </LiveButton>
           </BottomRight>
         </BottomContent>
         <Final>{loading && <StockChart data={stockHistory} />}</Final>

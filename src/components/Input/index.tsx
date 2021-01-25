@@ -13,7 +13,6 @@ const Input: React.FC<InputProps> = ({ ...rest }) => {
     (state: ApplicationState) => state.stockdata.inputError,
   );
 
-  console.log(isFilled);
   return (
     <Container>
       <InputBlank isFilled={!!isFilled}>

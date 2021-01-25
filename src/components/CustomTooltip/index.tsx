@@ -3,14 +3,14 @@ import numeral from 'numeral';
 
 import Container from './styles';
 
-type Props = {
+interface Props {
   active?: boolean;
   payload?: Array<any>;
   label?: string;
   customProps?: string;
   customProps1?: string;
   customProps2?: string;
-};
+}
 
 const CustomTooltip = ({ active, payload }: Props) => {
   const priceFormat = (item: string) => numeral(item).format('$ 0,0.00');

@@ -33,7 +33,7 @@ export const MainContent = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-right: 70px;
+  margin-left: 160px;
 `;
 
 export const Form = styled.form`
@@ -75,10 +75,10 @@ export const CompanySymbol = styled.span`
 
 export const CompanyName = styled.span`
   font-size: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 `;
 
-export const CompanyPrice = styled.span`
+export const CompanyPrice = styled.div`
   font-size: 24px;
 `;
 
@@ -95,4 +95,31 @@ export const Error = styled.span`
   font-size: 12px;
   color: #f91d1d;
   margin-top: 5px;
+`;
+
+export const PanelContent = styled.div`
+  margin-left: 100px;
+`;
+
+export const LiveButton = styled.div`
+  display: flex;
+  align-items: center;
+
+  button {
+    text-decoration: none;
+    background-color: transparent;
+    border: 0;
+
+    svg {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+  }
+
+  span {
+    font-size: 8px;
+    margin-bottom: 24px;
+    margin-left: 5px;
+    color: #fff;
+  }
 `;
