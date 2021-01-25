@@ -1,7 +1,9 @@
 import React, { useState, FormEvent, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import api from '../../services/api';
+
+import { ApplicationState } from '../../store';
 
 import {
   Container,
@@ -16,6 +18,7 @@ import {
   CompanyPrice,
   MainContent,
   Form,
+  Error,
   Final,
 } from './styles';
 import Title from '../../components/Title';
@@ -38,26 +41,38 @@ const Main: React.FC = () => {
   const [stockInfo, setStockInfo] = useState<StockProps>();
   const [stockHistory, setStockHistory] = useState<any>();
   const [loading, setLoading] = useState(false);
-  const setFilled = useDispatch();
+  const setInputError = useDispatch();
+  const inputError = useSelector(
+    (state: ApplicationState) => state.stockdata.inputError,
+  );
 
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>): Promise<void> => {
       event.preventDefault();
 
       if (!stockSymbol) {
-        setFilled({ type: '@general/UI_VALIDATE', payload: true });
+        setInputError({
+          type: '@error/SET_ERROR',
+          payload: 'Please choose a stock',
+        });
         return;
       }
 
-      const [dataInfo, dataHistory] = await Promise.all([
-        api.get(`/stable/stock/${stockSymbol}/quote`),
-        api.get(`/stable/stock/${stockSymbol}/chart/1y`),
-      ]);
+      try {
+        const [dataInfo, dataHistory] = await Promise.all([
+          api.get(`/stable/stock/${stockSymbol}/quote`),
+          api.get(`/stable/stock/${stockSymbol}/chart/1y`),
+        ]);
 
-      setStockInfo(dataInfo.data);
-      setStockHistory(dataHistory.data);
-      setLoading(true);
-      setFilled({ type: '@general/UI_VALIDATE', payload: false });
+        setStockInfo(dataInfo.data);
+        setStockHistory(dataHistory.data);
+        setLoading(true);
+      } catch (err) {
+        setInputError({
+          type: '@error/SET_ERROR',
+          payload: 'Stock does not exist',
+        });
+      }
     },
     [stockSymbol],
   );
@@ -75,10 +90,11 @@ const Main: React.FC = () => {
           </ImageContent>
           <Form onSubmit={handleSubmit}>
             <Input
-              placeholder="type a symbol"
+              placeholder="stock symbol"
               onChange={e => setStockSymbol(e.target.value)}
               value={stockSymbol}
             />
+            {inputError && <Error>{inputError}</Error>}
           </Form>
         </MainContent>
 

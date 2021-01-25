@@ -1,8 +1,8 @@
 import { action } from 'typesafe-actions';
 import { StockData, StockDataTypes } from './types';
 
-export const setFilled = (isFilled: boolean) =>
-  action(StockDataTypes.UX_VALIDATION, isFilled);
+export const setInputError = (inputError: string) =>
+  action(StockDataTypes.SET_ERROR, inputError);
 
 export const loadDataC1 = (datac1: StockData[]) =>
   action(StockDataTypes.LOAD_DATAC1, datac1);

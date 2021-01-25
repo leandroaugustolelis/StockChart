@@ -10,13 +10,13 @@ type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
 const Input: React.FC<InputProps> = ({ ...rest }) => {
   const isFilled = useSelector(
-    (state: ApplicationState) => state.stockdata.isFilled,
+    (state: ApplicationState) => state.stockdata.inputError,
   );
 
   console.log(isFilled);
   return (
     <Container>
-      <InputBlank>
+      <InputBlank isFilled={!!isFilled}>
         <AiOutlineStock size={20} />
         <input {...rest} />
       </InputBlank>

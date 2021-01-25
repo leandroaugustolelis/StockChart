@@ -38,6 +38,10 @@ export const MainContent = styled.div`
 
 export const Form = styled.form`
   margin-left: 70px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 50px;
 `;
 
 export const BottomContent = styled.div`
@@ -85,4 +89,10 @@ export const Final = styled.div`
   margin-right: 110px;
   margin-top: 40px;
   height: 150px;
+`;
+
+export const Error = styled.span`
+  font-size: 12px;
+  color: #f91d1d;
+  margin-top: 5px;
 `;

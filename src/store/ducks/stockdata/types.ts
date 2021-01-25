@@ -1,7 +1,7 @@
 //
 // eslint-disable-next-line no-shadow
 export enum StockDataTypes {
-  UX_VALIDATION = '@general/UI_VALIDATE',
+  SET_ERROR = '@error/SET_ERROR',
   LOAD_DATAC1 = '@data/LOAD_DATAC1',
   LOAD_DATAC2 = '@data/LOAD_DATAC2',
   LOAD_DATAC3 = '@data/LOAD_DATAC3',
@@ -18,5 +18,5 @@ export interface StockDataState {
   readonly datac1: StockData[];
   readonly datac2: StockData[];
   readonly datac3: StockData[];
-  readonly isFilled: boolean;
+  readonly inputError: string;
 }

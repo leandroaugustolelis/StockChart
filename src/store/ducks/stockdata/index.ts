@@ -5,7 +5,7 @@ const INITIAL_STATE: StockDataState = {
   datac1: [],
   datac2: [],
   datac3: [],
-  isFilled: false,
+  inputError: '',
 };
 
 const reducer: Reducer<StockDataState> = (state = INITIAL_STATE, action) => {
@@ -25,10 +25,10 @@ const reducer: Reducer<StockDataState> = (state = INITIAL_STATE, action) => {
         ...state,
         datac3: action.payload.data,
       };
-    case StockDataTypes.UX_VALIDATION:
+    case StockDataTypes.SET_ERROR:
       return {
         ...state,
-        isFilled: action.payload,
+        inputError: action.payload,
       };
     default:
       return state;
