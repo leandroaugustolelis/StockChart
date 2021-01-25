@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, connect } from 'react-redux';
+import { useDispatch, connect, useSelector } from 'react-redux';
 
 import Ticker from 'react-ticker';
 import api from '../../services/api';
@@ -8,31 +8,26 @@ import { Container, CompanyName, Variation, StockPrice } from './styles';
 
 import { ApplicationState } from '../../store';
 
-const TickerTest = ({ stockdatac1, stockdatac2, stockdatac3 }: any) => {
-  const loadDataC1 = useDispatch();
-  const loadDataC2 = useDispatch();
-  const loadDataC3 = useDispatch();
+const TickerTest = ({ dataTickerC1, dataTickerC2, dataTickerC3 }) => {
+  const loadDataTicker = useDispatch();
+
+  const test = useSelector(
+    (state: ApplicationState) => state.stockdata.dataTickerC1,
+  );
 
   useEffect(() => {
     async function initialLoad() {
-      const [dataC1, dataC2, dataC3] = await Promise.all([
+      const data = await Promise.all([
         api.get(`/stable/stock/IBM/quote`),
         api.get(`/stable/stock/TSLA/quote`),
         api.get(`/stable/stock/NKE/quote`),
       ]);
 
-      loadDataC1({
-        type: '@data/LOAD_DATAC1',
-        payload: dataC1,
+      loadDataTicker({
+        type: '@data/LOAD_TICKER',
+        payload: data,
       });
-      loadDataC2({
-        type: '@data/LOAD_DATAC2',
-        payload: dataC2,
-      });
-      loadDataC3({
-        type: '@data/LOAD_DATAC3',
-        payload: dataC3,
-      });
+      console.log(test);
     }
 
     initialLoad();
@@ -42,15 +37,15 @@ const TickerTest = ({ stockdatac1, stockdatac2, stockdatac3 }: any) => {
     <Ticker>
       {() => (
         <Container>
-          <CompanyName>{stockdatac1.symbol}</CompanyName>
-          <StockPrice>{stockdatac1.latestPrice}</StockPrice>
-          <Variation>{stockdatac1.change}</Variation>
-          <CompanyName>{stockdatac2.symbol}</CompanyName>
-          <StockPrice>{stockdatac2.latestPrice}</StockPrice>
-          <Variation>{stockdatac2.change}</Variation>
-          <CompanyName>{stockdatac3.symbol}</CompanyName>
-          <StockPrice>{stockdatac3.latestPrice}</StockPrice>
-          <Variation>{stockdatac3.change}</Variation>
+          <CompanyName>{dataTickerC1.symbol}</CompanyName>
+          <StockPrice>{dataTickerC1.latestPrice}</StockPrice>
+          <Variation>{dataTickerC1.change}</Variation>
+          <CompanyName>{dataTickerC2.symbol}</CompanyName>
+          <StockPrice>{dataTickerC2.latestPrice}</StockPrice>
+          <Variation>{dataTickerC2.change}</Variation>
+          <CompanyName>{dataTickerC3.symbol}</CompanyName>
+          <StockPrice>{dataTickerC3.latestPrice}</StockPrice>
+          <Variation>{dataTickerC3.change}</Variation>
         </Container>
       )}
     </Ticker>
@@ -58,9 +53,9 @@ const TickerTest = ({ stockdatac1, stockdatac2, stockdatac3 }: any) => {
 };
 
 const mapStateToProps = (state: ApplicationState) => ({
-  stockdatac1: state.stockdata.datac1,
-  stockdatac2: state.stockdata.datac2,
-  stockdatac3: state.stockdata.datac3,
+  dataTickerC1: state.stockdata.dataTickerC1,
+  dataTickerC2: state.stockdata.dataTickerC2,
+  dataTickerC3: state.stockdata.dataTickerC3,
 });
 
 export default connect(mapStateToProps)(TickerTest);

@@ -2,28 +2,20 @@ import { Reducer } from 'redux';
 import { StockDataState, StockDataTypes } from './types';
 
 const INITIAL_STATE: StockDataState = {
-  datac1: [],
-  datac2: [],
-  datac3: [],
+  dataTickerC1: [],
+  dataTickerC2: [],
+  dataTickerC3: [],
   inputError: '',
 };
 
 const reducer: Reducer<StockDataState> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case StockDataTypes.LOAD_DATAC1:
+    case StockDataTypes.LOAD_TICKER:
       return {
         ...state,
-        datac1: action.payload.data,
-      };
-    case StockDataTypes.LOAD_DATAC2:
-      return {
-        ...state,
-        datac2: action.payload.data,
-      };
-    case StockDataTypes.LOAD_DATAC3:
-      return {
-        ...state,
-        datac3: action.payload.data,
+        dataTickerC1: action.payload[0].data,
+        dataTickerC2: action.payload[1].data,
+        dataTickerC3: action.payload[2].data,
       };
     case StockDataTypes.SET_ERROR:
       return {

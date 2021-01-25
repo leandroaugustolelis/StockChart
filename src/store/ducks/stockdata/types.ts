@@ -2,9 +2,7 @@
 // eslint-disable-next-line no-shadow
 export enum StockDataTypes {
   SET_ERROR = '@error/SET_ERROR',
-  LOAD_DATAC1 = '@data/LOAD_DATAC1',
-  LOAD_DATAC2 = '@data/LOAD_DATAC2',
-  LOAD_DATAC3 = '@data/LOAD_DATAC3',
+  LOAD_TICKER = '@data/LOAD_TICKER',
 }
 
 export interface StockData {
@@ -15,8 +13,8 @@ export interface StockData {
 }
 
 export interface StockDataState {
-  readonly datac1: StockData[];
-  readonly datac2: StockData[];
-  readonly datac3: StockData[];
+  readonly dataTickerC1: StockData[];
+  readonly dataTickerC2: StockData[];
+  readonly dataTickerC3: StockData[];
   readonly inputError: string;
 }
